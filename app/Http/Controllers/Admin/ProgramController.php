@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ProgramController extends Controller
 {
+
+        public function all_programs(){
+            return response()->json(['data'=>Program::all()]);
+        }
      public function programs($id){
         $progaram=Program::where('year_id',$id)->get();
         if($progaram)

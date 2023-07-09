@@ -12,7 +12,7 @@ use App\Http\Controllers\User\SubjectsController;
 Route::prefix('user')->group(function(){
 
     Route::prefix('program')->middleware('auth:user') ->controller(ProgramController::class)->group(function(){
-
+        Route::get('/all','all_programs');
         Route::get('/ProgramOfTheYear','index');
         Route::get('/downloadProgram','download');
         Route::get('/years','getYears');
