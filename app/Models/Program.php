@@ -16,7 +16,16 @@ class Program extends Model
     // protected $hidden = [
     // // 'pivot'
     // ];
+    
     protected $guarded=[];
+
+
+    protected function day(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => (int)$value,
+        );
+    }
 
     protected function startTime(): Attribute
     {
