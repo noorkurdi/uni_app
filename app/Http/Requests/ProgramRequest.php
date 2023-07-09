@@ -26,8 +26,8 @@ class ProgramRequest extends FormRequest
             'year_id'=>['required','exists:years,id'],
             'programs.*.subject_name'=>['required','max:255'],
             'programs.*.professore_name'=>['required','max:255'],
-            'programs.*.start_time'=>['required','date_format:Y-m-d H:i'],
-            'programs.*.end_time'=>['required','date_format:Y-m-d H:i'],
+            'programs.*.start_time'=>['required'],
+            'programs.*.end_time'=>['required'],
             'programs.*.place'=>['required','max:255'],
             'programs.*.day'=>['required','min:1','max:7']
         ];
