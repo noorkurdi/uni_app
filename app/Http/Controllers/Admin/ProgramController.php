@@ -51,7 +51,7 @@ class ProgramController extends Controller
         //   ->whereDay('start_time', $toDay)->get();
     }
     public function index(){
-       return Year::with('programs:year_id,subject_name,professore_name,start_time,end_time,place')->get();
+       return Year::with('programs:id,year_id,subject_name,professore_name,start_time,end_time,place')->get();
     }
     public function store(ProgramRequest $request){
        
