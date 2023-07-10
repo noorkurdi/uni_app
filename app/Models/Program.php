@@ -27,18 +27,18 @@ class Program extends Model
         );
     }
 
-    protected function startTime(): Attribute
-    {
-        return Attribute::make(
-            get: fn (string $value) => Carbon::parse($value)->format('Y-m-d H:i'),
-        );
-    }
-     protected function endTime(): Attribute
-    {
-        return Attribute::make(
-            get: fn (string $value) => Carbon::parse($value)->format('Y-m-d H:i'),
-        );
-    }
+    // protected function startTime(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn (string $value) => Carbon::parse($value)->format('Y-m-d H:i'),
+    //     );
+    // }
+    //  protected function endTime(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn (string $value) => Carbon::parse($value)->format('Y-m-d H:i'),
+    //     );
+    // }
     public function users(){
         return $this->belongsToMany(User::class,'Studentsubjects')->withPivot('updated_at');
     }
