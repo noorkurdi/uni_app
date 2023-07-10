@@ -34,8 +34,8 @@ class UserRequest extends FormRequest
             
                 $rules['password'][3]='current_password';
             
-                $rules['password'][]='confirmed';
-            
+                $rules['new_password']=['required','min:4','confirmed'];
+                // dd($rules);
             return $rules;
         }
         return $rules;

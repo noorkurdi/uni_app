@@ -14,11 +14,16 @@ class AuthUserController extends Controller
 
     public function show(){  
         return auth('user')->user();
-        // return auth('user')->user();   
+         
     }
     public function update(UserRequest $request){
-       
-        auth('user')->user()->update($request->validated());
+  
+        auth('user')->user()->update([
+            'full_name'=>$request->full_name,
+            'uni_number'=>$request->uni_number,
+            'password'=>$request->new_password,
+            'year'=>$request->year,
+        ]);
         return response()->json(['message'=>'updated successfully']);
     }
     public function store(UserRequest $request){
