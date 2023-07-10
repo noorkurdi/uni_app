@@ -23,7 +23,7 @@ class Program extends Model
     protected function day(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => (int)$value,
+            get: fn ($value) => (int)$value,
         );
     }
 
