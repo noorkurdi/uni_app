@@ -46,16 +46,15 @@ class ProgramController extends Controller
         return Storage::disk('public')->download('programFile/program.pdf');
     }
     public function todayLectures(){
-            // $toDay=Carbon::now()->format('d');
-               
+          
            return Program::select('id','subject_name','professore_name','start_time','end_time','place','day')
            
            ->where('day',request()->day)
            ->get();
-        //   ->whereDay('start_time', $toDay)->get();
+        
     }
     public function index(){
-       return Year::with('programs:id,year_id,subject_name,professore_name,start_time,end_time,place')->get();
+       return Year::with('programs:id,day,year_id,subject_name,professore_name,start_time,end_time,place')->get();
     }
     public function store(ProgramRequest $request){
        
