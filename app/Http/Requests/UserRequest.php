@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserRequest extends FormRequest
 {
@@ -34,7 +35,7 @@ class UserRequest extends FormRequest
             
                 $rules['password'][3]='current_password';
             
-                $rules['new_password']=['required','min:4','confirmed'];
+                $rules['new_password']=[Rule::requiredIf(request()->password),'min:4','confirmed'];
                 // dd($rules);
             return $rules;
         }
