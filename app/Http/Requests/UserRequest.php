@@ -33,10 +33,11 @@ class UserRequest extends FormRequest
            
                 $rules['uni_number'][1]='unique:users,uni_number,'.auth('user')->id();
             
-                $rules['password'][3]='current_password';
+                $rules['password']='current_password';
+             
             
-                $rules['new_password']=[Rule::requiredIf(request()->password),'min:4','confirmed'];
-                // dd($rules);
+                $rules['new_password']=[Rule::requiredIf(request()->password!=""),'min:4','confirmed'];
+              
             return $rules;
         }
         return $rules;

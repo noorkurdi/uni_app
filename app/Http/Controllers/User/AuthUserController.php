@@ -17,7 +17,7 @@ class AuthUserController extends Controller
          
     }
     public function update(UserRequest $request){
-  
+        
         auth('user')->user()->update([
             'full_name'=>$request->full_name,
             'uni_number'=>$request->uni_number,
