@@ -32,11 +32,12 @@ class SubjectsController extends Controller
     }
 
     public function toDayLectures(){
-        $toDay=Carbon::now()->format('d');
+        $toDay=request()->day;
+       
        return DB::table('users as u')->where('u.id',auth('user')->id())
             ->join('studentsubjects as s','s.user_id','=','u.id')
             ->join('programs as p','p.id','=','s.program_id')
-            ->whereDay('p.start_time',$toDay)
+            ->where('p.day',$toDay)
             ->select('p.*')
             ->get();
       

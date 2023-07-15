@@ -48,6 +48,8 @@ Route::prefix('admin')->group(function(){
     });
     Route::prefix('program')->middleware('auth:admin')->controller(ProgramController::class)->group(function(){
 
+        Route::get('toDayLecs','todayLectures');
+        
         Route::get('subjects-registration','subjects_registration');
 
         Route::get('student-registration','student_registration');
@@ -58,7 +60,6 @@ Route::prefix('admin')->group(function(){
 
         Route::get('/ProgramOfTheYear','index');
 
-        Route::get('toDayLecs','todayLectures');
 
         Route::post('/upload','uploadFile')->name('uploadProgram');
 

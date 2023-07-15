@@ -46,7 +46,7 @@ class ProgramController extends Controller
         return Storage::disk('public')->download('programFile/program.pdf');
     }
     public function todayLectures(){
-          
+        // dd('asd');
            return Program::select('id','subject_name','professore_name','start_time','end_time','place','day')
            
            ->where('day',request()->day)
