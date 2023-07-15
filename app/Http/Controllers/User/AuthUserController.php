@@ -21,7 +21,7 @@ class AuthUserController extends Controller
         auth('user')->user()->update([
             'full_name'=>$request->full_name,
             'uni_number'=>$request->uni_number,
-            'password'=>$request->new_password,
+            'password'=>$request->new_password ?? auth()->user()->password,
             'year'=>$request->year,
         ]);
         return response()->json(['message'=>'updated successfully']);
