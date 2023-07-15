@@ -81,7 +81,7 @@ class ProgramController extends Controller
     public function student_registration(){
        $program=Program::find(request()->subjectId);
        if($program)
-        return  StudentRegisterationResourse::collection($program->users);
+        return  StudentRegisterationResourse::collection($program->usersAttended);
         return response()->json(['error'=>'subjectId not found'],422);
        
     }

@@ -18,7 +18,9 @@ class Program extends Model
     // ];
     
     protected $guarded=[];
-
+        protected $casts=[
+            "day"=>'integer',
+        ];
 
     protected function day(): Attribute
     {

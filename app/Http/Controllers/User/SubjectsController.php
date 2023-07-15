@@ -33,7 +33,7 @@ class SubjectsController extends Controller
 
     public function toDayLectures(){
         $toDay=request()->day;
-       
+        // dd($toDay);
        return DB::table('users as u')->where('u.id',auth('user')->id())
             ->join('studentsubjects as s','s.user_id','=','u.id')
             ->join('programs as p','p.id','=','s.program_id')
